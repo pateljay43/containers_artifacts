@@ -8,8 +8,6 @@ services:
       ACCEPT_EULA: "Y"
       SA_PASSWORD: "strongpassword"
       MSSQL_AGENT_ENABLED: "true"
-    networks:
-      - ${NETWORK_NAME}
     ports:
       - 1433:1433
 
@@ -23,8 +21,6 @@ services:
         SQL_USER: "sa"
         SQL_PASSWORD: "strongpassword"
         SQL_SERVER: mssql
-    networks:
-      - ${NETWORK_NAME}
     image: ${REGISTRY_URL}/poi:1.0
 
   trips:
