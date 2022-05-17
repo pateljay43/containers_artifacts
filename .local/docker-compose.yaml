@@ -1,0 +1,49 @@
+version: "3"
+services:
+  mssql:
+    image: mcr.microsoft.com/azure-sql-edge
+    container_name: mssql
+    restart: unless-stopped
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "securepassword"
+      MSSQL_AGENT_ENABLED: "true"
+    # ports:
+    #   - 1433:1433
+
+  poi:
+    container_name: poi
+    build:
+      context: ../src/poi
+      dockerfile: ../../dockerfiles/Dockerfile_3
+    image: tripinsights/poi:1.0
+    depends_on:
+      - mssql
+
+  trips:
+    container_name: trips
+    build:
+      context: ../src/trips
+      dockerfile: ../../dockerfiles/Dockerfile_4
+    image: tripinsights/trips:1.0
+
+  user-java:
+    container_name: user-java
+    build:
+      context: ../src/user-java
+      dockerfile: ../../dockerfiles/Dockerfile_0
+    image: tripinsights/user-java:1.0
+
+  userprofile:
+    container_name: userprofile
+    build:
+      context: ../src/userprofile
+      dockerfile: ../../dockerfiles/Dockerfile_2
+    image: tripinsights/userprofile:1.0
+
+  tripviewer:
+    container_name: tripviewer
+    build:
+      context: ../src/tripviewer
+      dockerfile: ../../dockerfiles/Dockerfile_1
+    image: tripinsights/tripviewer:1.0
