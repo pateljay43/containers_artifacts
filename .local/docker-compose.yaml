@@ -60,6 +60,6 @@ services:
     image: ${REGISTRY_URL}/tripviewer:1.0
 
 networks:
-  docs-network:
+  tripinsightsnet:
     name: ${NETWORK_NAME}
     driver: ${NETWORK_DRIVER}
