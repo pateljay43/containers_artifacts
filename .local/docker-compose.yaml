@@ -6,7 +6,7 @@ services:
     restart: unless-stopped
     environment:
       ACCEPT_EULA: "Y"
-      SA_PASSWORD: "strongpassword"
+      SA_PASSWORD: "StrO@SfoiP134ndh"
       MSSQL_AGENT_ENABLED: "true"
     ports:
       - 1433:1433
@@ -19,7 +19,7 @@ services:
       dockerfile: ../../dockerfiles/Dockerfile_3
       args:
         SQL_USER: "sa"
-        SQL_PASSWORD: "strongpassword"
+        SQL_PASSWORD: "StrO@SfoiP134ndh"
         SQL_SERVER: mssql
     image: ${REGISTRY_URL}/poi:1.0
 
