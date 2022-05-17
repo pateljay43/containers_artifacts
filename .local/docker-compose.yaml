@@ -58,8 +58,3 @@ services:
       context: ../src/tripviewer
       dockerfile: ../../dockerfiles/Dockerfile_1
     image: ${REGISTRY_URL}/tripviewer:1.0
-
-networks:
-  host:
-    name: ${NETWORK_NAME}
-    driver: ${NETWORK_DRIVER}
