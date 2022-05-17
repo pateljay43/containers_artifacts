@@ -1,31 +1,41 @@
-version: '3'
+version: "3"
 services:
   poi:
+    platform: linux/amd64
+    container_name: poi
     build:
       context: ../src/poi
       dockerfile: ../../dockerfiles/Dockerfile_3
-    image: tripinsights/poi:1.0
+    image: ${REGISTRY_URL}/poi:1.0
 
   trips:
+    platform: linux/amd64
+    container_name: trips
     build:
       context: ../src/trips
       dockerfile: ../../dockerfiles/Dockerfile_4
-    image: tripinsights/trips:1.0
-  
+    image: ${REGISTRY_URL}/trips:1.0
+
   user-java:
+    platform: linux/amd64
+    container_name: user-java
     build:
       context: ../src/user-java
       dockerfile: ../../dockerfiles/Dockerfile_0
-    image: tripinsights/user-java:1.0
-  
+    image: ${REGISTRY_URL}/user-java:1.0
+
   userprofile:
+    platform: linux/amd64
+    container_name: userprofile
     build:
       context: ../src/userprofile
       dockerfile: ../../dockerfiles/Dockerfile_2
-    image: tripinsights/userprofile:1.0
+    image: ${REGISTRY_URL}/userprofile:1.0
 
   tripviewer:
+    platform: linux/amd64
+    container_name: tripviewer
     build:
       context: ../src/tripviewer
       dockerfile: ../../dockerfiles/Dockerfile_1
-    image: tripinsights/tripviewer:1.0
+    image: ${REGISTRY_URL}/tripviewer:1.0
